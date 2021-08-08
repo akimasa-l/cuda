@@ -1,10 +1,12 @@
-#include<stdio.h>
-__global__ void helloFromGPU(){
-    printf("Hello World From GPU!\n");
+#include <stdio.h>
+__global__ void helloFromGPU() {
+    const auto a = threadIdx.x;
+    printf("Hello World From GPU thread %d!\n", a);
 }
-int main(){
+int main() {
     printf("Hello World From CPU!\n");
-    helloFromGPU<<<1,10>>>();
-    cudaDeviceReset();
+    helloFromGPU<<<1, 10>>>();
+    // cudaDeviceReset();
+    cudaDeviceSynchronize();
     return 0;
 }
