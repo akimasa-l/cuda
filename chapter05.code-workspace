@@ -17,6 +17,7 @@
 			".cu": "cd $dir && nvcc $fileName --generate-code arch=compute_61,code=sm_61 --generate-code arch=compute_75,code=sm_75 -o $fileNameWithoutExt.out && ./$fileNameWithoutExt.out", //code runner 
 		},
 		"code-runner.runInTerminal": true,
+		"files.autoSave": "afterDelay",
 	},
 	"extensions": {
 		"recommendations": [
