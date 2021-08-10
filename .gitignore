@@ -1,2 +1,4 @@
 *.out
 download
+*.code-workspace
+workspace_initializer.py
