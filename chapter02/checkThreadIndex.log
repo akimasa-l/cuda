@@ -1,3 +1,4 @@
+==221752== NVPROF is profiling process 221752, command: ./checkThreadIndex.out
 ./checkThreadIndex.out Starting...
 Using Device 0: NVIDIA GeForce RTX 2080
 
@@ -57,3 +58,9 @@ thread_id (0,1) block_id (1,1) coordinate (4,3) global index 28 ival 28
 thread_id (1,1) block_id (1,1) coordinate (5,3) global index 29 ival 29
 thread_id (2,1) block_id (1,1) coordinate (6,3) global index 30 ival 30
 thread_id (3,1) block_id (1,1) coordinate (7,3) global index 31 ival 31
+==221752== Warning: ERR_NVGPUCTRPERM - The user does not have permission to profile on the target device. See the following link for instructions to enable permissions and get more information: https://developer.nvidia.com/ERR_NVGPUCTRPERM 
+==221752== Profiling application: ./checkThreadIndex.out
+==221752== Profiling result:
+No kernels were profiled.
+No API activities were profiled.
+==221752== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
