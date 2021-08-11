@@ -1,0 +1,15 @@
+./sumArraysOnGPU-timer.out Starting...
+==256523== NVPROF is profiling process 256523, command: ./sumArraysOnGPU-timer.out
+Using Device 0: NVIDIA GeForce RTX 2080
+Vector size 16777216
+initialData Time elapsed 0.516373 sec
+sumArraysOnHost Time elapsed 0.037425 sec
+sumArraysOnGPU <<<  32768, 512  >>>  Time elapsed 0.000580 sec
+Arrays match.
+
+==256523== Warning: ERR_NVGPUCTRPERM - The user does not have permission to profile on the target device. See the following link for instructions to enable permissions and get more information: https://developer.nvidia.com/ERR_NVGPUCTRPERM 
+==256523== Profiling application: ./sumArraysOnGPU-timer.out
+==256523== Profiling result:
+No kernels were profiled.
+No API activities were profiled.
+==256523== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
