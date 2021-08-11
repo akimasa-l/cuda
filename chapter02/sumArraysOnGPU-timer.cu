@@ -123,7 +123,7 @@ int main(int argc, char **argv)
     CHECK(cudaMemcpy(d_C, gpuRef, nBytes, cudaMemcpyHostToDevice));
 
     // invoke kernel at host side
-    int iLen = 1024;
+    int iLen = 1023;
     dim3 block (iLen);
     dim3 grid  ((nElem + block.x - 1) / block.x);
 
