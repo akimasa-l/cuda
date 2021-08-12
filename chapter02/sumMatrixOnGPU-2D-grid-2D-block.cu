@@ -11,30 +11,32 @@
  * iterates through vector elements on the host.
  */
 
+using T=float;
+
 double cpuSecond(){
     struct timeval tp;
     gettimeofday(&tp, NULL);
     return ((double)tp.tv_sec+(double)tp.tv_usec*1.e-6);
 }
 
-void initialData(float *ip, const int size)
+void initialData(T *ip, const int size)
 {
     int i;
 
     for(i = 0; i < size; i++)
     {
-        ip[i] = (float)(rand() & 0xFF) / 10.0f;
+        ip[i] = (T)(rand() & 0xFF) / 10.0f;
     }
 
     return;
 }
 
-void sumMatrixOnHost(float *A, float *B, float *C, const int nx,
+void sumMatrixOnHost(T *A, T *B, T *C, const int nx,
                      const int ny)
 {
-    float *ia = A;
-    float *ib = B;
-    float *ic = C;
+    T *ia = A;
+    T *ib = B;
+    T *ic = C;
 
     for (int iy = 0; iy < ny; iy++)
     {
@@ -53,7 +55,7 @@ void sumMatrixOnHost(float *A, float *B, float *C, const int nx,
 }
 
 
-void checkResult(float *hostRef, float *gpuRef, const int N)
+void checkResult(T *hostRef, T *gpuRef, const int N)
 {
     double epsilon = 1.0E-8;
     bool match = 1;
@@ -75,7 +77,7 @@ void checkResult(float *hostRef, float *gpuRef, const int N)
 }
 
 // grid 2D block 2D
-__global__ void sumMatrixOnGPU2D(float *MatA, float *MatB, float *MatC, int nx,
+__global__ void sumMatrixOnGPU2D(T *MatA, T *MatB, T *MatC, int nx,
                                  int ny)
 {
     unsigned int ix = threadIdx.x + blockIdx.x * blockDim.x;
@@ -102,15 +104,15 @@ int main(int argc, char **argv)
     int ny = 1 << 14;
 
     int nxy = nx * ny;
-    int nBytes = nxy * sizeof(float);
+    int nBytes = nxy * sizeof(T);
     printf("Matrix size: nx %d ny %d\n", nx, ny);
 
     // malloc host memory
-    float *h_A, *h_B, *hostRef, *gpuRef;
-    h_A = (float *)malloc(nBytes);
-    h_B = (float *)malloc(nBytes);
-    hostRef = (float *)malloc(nBytes);
-    gpuRef = (float *)malloc(nBytes);
+    T *h_A, *h_B, *hostRef, *gpuRef;
+    h_A = (T *)malloc(nBytes);
+    h_B = (T *)malloc(nBytes);
+    hostRef = (T *)malloc(nBytes);
+    gpuRef = (T *)malloc(nBytes);
 
     // initialize data at host side
     double iStart = cpuSecond();
@@ -129,7 +131,7 @@ int main(int argc, char **argv)
     printf("sumMatrixOnHost elapsed %f sec\n", iElaps);
 
     // malloc device global memory
-    float *d_MatA, *d_MatB, *d_MatC;
+    T *d_MatA, *d_MatB, *d_MatC;
     (cudaMalloc((void **)&d_MatA, nBytes));
     (cudaMalloc((void **)&d_MatB, nBytes));
     (cudaMalloc((void **)&d_MatC, nBytes));

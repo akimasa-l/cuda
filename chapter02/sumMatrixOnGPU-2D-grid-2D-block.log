@@ -1,15 +1,14 @@
-./sumMatrixOnGPU-2D-grid-2D-block.out Starting...
-==238069== NVPROF is profiling process 238069, command: ./sumMatrixOnGPU-2D-grid-2D-block.out
+./sumMatrixOnGPU-2D-grid-2D-block.out Starting...==286829== NVPROF is profiling process 286829, command: ./sumMatrixOnGPU-2D-grid-2D-block.out
 Using Device 0: NVIDIA GeForce RTX 2080
 Matrix size: nx 16384 ny 16384
-Matrix initialization elapsed 8.270882 sec
-sumMatrixOnHost elapsed 0.622671 sec
-sumMatrixOnGPU2D <<<(512,1024), (32,16)>>> elapsed 0.008082 sec
+Matrix initialization elapsed 8.283586 sec
+sumMatrixOnHost elapsed 0.610159 sec
+sumMatrixOnGPU2D <<<(512,1024), (32,16)>>> elapsed 0.008131 sec
 Arrays match.
 
-==238069== Warning: ERR_NVGPUCTRPERM - The user does not have permission to profile on the target device. See the following link for instructions to enable permissions and get more information: https://developer.nvidia.com/ERR_NVGPUCTRPERM 
-==238069== Profiling application: ./sumMatrixOnGPU-2D-grid-2D-block.out
-==238069== Profiling result:
+==286829== Warning: ERR_NVGPUCTRPERM - The user does not have permission to profile on the target device. See the following link for instructions to enable permissions and get more information: https://developer.nvidia.com/ERR_NVGPUCTRPERM 
+==286829== Profiling application: ./sumMatrixOnGPU-2D-grid-2D-block.out
+==286829== Profiling result:
 No kernels were profiled.
 No API activities were profiled.
-==238069== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
+==286829== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
