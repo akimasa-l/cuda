@@ -1,0 +1,14 @@
+./sumMatrixOnGPU-2D-grid-1D-block-two.out Starting...==285639== NVPROF is profiling process 285639, command: ./sumMatrixOnGPU-2D-grid-1D-block-two.out
+Using Device 0: NVIDIA GeForce RTX 2080
+Matrix size: nx 8192 ny 8192
+Matrix initialization elapsed 2.112048 sec
+sumMatrixOnHost elapsed 0.143511 sec
+sumMatrixOnGPU2D <<<(128,8192), (32,1)>>> elapsed 0.002128 sec
+Arrays match.
+
+==285639== Warning: ERR_NVGPUCTRPERM - The user does not have permission to profile on the target device. See the following link for instructions to enable permissions and get more information: https://developer.nvidia.com/ERR_NVGPUCTRPERM 
+==285639== Profiling application: ./sumMatrixOnGPU-2D-grid-1D-block-two.out
+==285639== Profiling result:
+No kernels were profiled.
+No API activities were profiled.
+==285639== Warning: Some profiling data are not recorded. Make sure cudaProfilerStop() or cuProfilerStop() is called before application exit to flush profile data.
