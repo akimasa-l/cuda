@@ -23,4 +23,4 @@ plt.ylabel("Imaginary part")
 cbar = plt.colorbar(im)
 cbar.set_label('Argument (°)', size=10)
 
-plt.savefig("./fig.png")
+plt.savefig("./fig.png",dpi=800)
