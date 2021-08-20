@@ -62,7 +62,7 @@ void print(F *h_x) {
 }
 
 int main() {
-    size_t size = block_x * block_y * thread_x * thread_y;
+    size_t size = block_x * block_y * thread_x * thread_y * sizeof(F);
     F *h_x, *d_x;
     cudaMalloc((void **)&d_x, size);
     dim3 block(block_x, block_y);
