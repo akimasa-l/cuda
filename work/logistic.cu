@@ -2,17 +2,17 @@
 
 using namespace std;
 
-using T = float;
+using T = double;
 
 constexpr T range_min = 2.0;
 constexpr T range_max = 4.0;
 constexpr T range = range_max - range_min;
 
-constexpr auto all_threads = 2048;
+constexpr auto all_threads = 4096;
 constexpr auto block_size = 16;
 constexpr auto thread_size = all_threads / block_size;
 constexpr auto warmup = 300;
-constexpr auto loops = 500;
+constexpr auto loops = 1000;
 
 __device__ T get_a() {
     return // 2 * log2(2 + range / thread_size * threadIdx.x);
