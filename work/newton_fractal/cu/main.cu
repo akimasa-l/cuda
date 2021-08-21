@@ -4,10 +4,10 @@
 using F = double;
 using T = thrust::complex<F>;
 
-constexpr F range_x_max = +10;
-constexpr F range_x_min = -10;
-constexpr F range_y_max = +10;
-constexpr F range_y_min = -10;
+constexpr F range_x_max = +1;
+constexpr F range_x_min = -1;
+constexpr F range_y_max = +1;
+constexpr F range_y_min = -1;
 constexpr int block_x = 256;
 constexpr int block_y = 256;
 constexpr int thread_x = 32;
