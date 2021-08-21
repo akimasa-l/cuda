@@ -2,7 +2,7 @@
 #include <complex>
 
 using F = double;
-using T = std::complex<F>;
+using T = thrust::complex<F>;
 
 constexpr F range_x_max = +1;
 constexpr F range_x_min = -1;
@@ -12,7 +12,6 @@ constexpr int block_x = 64;
 constexpr int block_y = 64;
 constexpr int thread_x = 16;
 constexpr int thread_y = 16;
-constexpr T one = 1;
 
 inline T get_place(const int ix, const int iy) {
     return {range_x_min + (range_x_max - range_x_min) * (F)ix /
@@ -26,8 +25,8 @@ inline int get_id(const int ix, const int iy) {
 }
 
 inline T newton_method(T x) {
-    const T f = one / (one + std::exp(x));
-    const T df = f * (one - f);
+    const T f = 1 / (1 + thrust::exp(x));
+    const T df = f * (1 - f);
     return df.real() == .0 && df.imag() == .0 ? df : x - f / df;
 }
 
@@ -37,7 +36,7 @@ void calc(const int ix, const int iy, F *h_x) {
     for(int i = 0; i < 100; i++) {
         c = newton_method(c);
     }
-    h_x[id] = std::arg(c);
+    h_x[id] = thrust::arg(c);
 }
 
 void print(F *h_x) {
