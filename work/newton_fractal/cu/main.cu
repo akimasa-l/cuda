@@ -27,8 +27,9 @@ __device__ inline T get_place(const int ix, const int iy) {
 }
 
 __device__ inline T newton_method(T x) {
-    const T f = 1 / (1 + thrust::exp(-x));
-    const T df = 1 / (-2 * thrust::cosh(x) - 2);
+    const T f = 1 / (1 + thrust::exp(-2 * x));
+    const T df =
+        2 * thrust::exp(-2 * x) / thrust::pow(thrust::exp(-2 * x) + 1, 2);
     return df.real() == .0 && df.imag() == .0 ? df : x - f / df;
 }
 
