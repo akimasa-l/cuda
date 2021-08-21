@@ -4,10 +4,10 @@
 using F = double;
 using T = thrust::complex<F>;
 
-constexpr F range_x_max = +1;
-constexpr F range_x_min = -1;
-constexpr F range_y_max = +1;
-constexpr F range_y_min = -1;
+constexpr F range_x_max = +2;
+constexpr F range_x_min = -2;
+constexpr F range_y_max = +2;
+constexpr F range_y_min = -2;
 constexpr int block_x = 256;
 constexpr int block_y = 256;
 constexpr int thread_x = 32;
@@ -27,8 +27,8 @@ __device__ inline T get_place(const int ix, const int iy) {
 }
 
 __device__ inline T newton_method(T x) {
-    const T f = 2 * thrust::pow(x * (1 - x), 0.5);
-    const T df = (1 - 2 * x) / thrust::pow(x - x * x, 0.5);
+    const T f = thrust::tanh(x);
+    const T df = 1 / thrust::pow(thrust::cosh(x), 2);
     // const T f = 1 / (1 + thrust::exp(x));
     // const T df = f * (1 - f);
     return df.real() == .0 && df.imag() == .0 ? df : x - f / df;
