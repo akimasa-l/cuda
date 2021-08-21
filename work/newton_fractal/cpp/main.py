@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 
-result = pd.read_csv("./main_cpp.log").values
+result = pd.read_csv("./main.log").values
 
 result = (result + 2*np.pi) % (2*np.pi) * 180/np.pi
 

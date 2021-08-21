@@ -1,8 +1,8 @@
 import time
 import subprocess
 t=time.time()
-a=subprocess.run("./cpp/logistic.out",stdout=subprocess.PIPE,universal_newlines=True)
-print("Logistic:",time.time()-t)
+a=subprocess.run("./cpp/main.out",stdout=subprocess.PIPE,universal_newlines=True)
+print("cpp :",time.time()-t)
 t=time.time()
-a=subprocess.run("./logistic_cpp.out",stdout=subprocess.PIPE,universal_newlines=True)
-print("Logistic_cpp:",time.time()-t)
+a=subprocess.run("./cu/main.out",stdout=subprocess.PIPE,universal_newlines=True)
+print("CUDA :",time.time()-t)
