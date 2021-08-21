@@ -10,8 +10,8 @@ constexpr F range_y_max = +1;
 constexpr F range_y_min = -1;
 constexpr int block_x = 64;
 constexpr int block_y = 64;
-constexpr int thread_x = 16;
-constexpr int thread_y = 16;
+constexpr int thread_x = 32;
+constexpr int thread_y = 32;
 
 __device__ inline int get_ix() { return threadIdx.x + blockIdx.x * blockDim.x; }
 __device__ inline int get_iy() { return threadIdx.y + blockIdx.y * blockDim.y; }

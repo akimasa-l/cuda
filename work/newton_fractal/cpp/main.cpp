@@ -10,8 +10,8 @@ constexpr F range_y_max = +1;
 constexpr F range_y_min = -1;
 constexpr int block_x = 64;
 constexpr int block_y = 64;
-constexpr int thread_x = 16;
-constexpr int thread_y = 16;
+constexpr int thread_x = 32;
+constexpr int thread_y = 32;
 
 inline T get_place(const int ix, const int iy) {
     return {range_x_min + (range_x_max - range_x_min) * (F)ix /
