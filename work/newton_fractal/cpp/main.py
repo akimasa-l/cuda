@@ -6,8 +6,6 @@ result = pd.read_csv("./main.log").values
 
 result = (result + 2*np.pi) % (2*np.pi) * 180/np.pi
 
-print(result[0].dtype)
-
 # 初期値z0の計算範囲
 real_min = -1  # 実部最小値
 real_max = 1  # 実部最大値
